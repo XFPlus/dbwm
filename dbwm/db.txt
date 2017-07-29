@@ -1,0 +1,82 @@
+create table loging
+(
+	number int,
+	zhanghao varchar(20) unique,
+	mima varchar(20),
+	quanxian int,
+	primary key(number)
+);
+create table shop
+(
+	number int,
+	shopname varchar(20) unique,
+	address varchar(100),
+	phone int,
+	primary key(number)
+);
+
+create table food
+(
+	number int,
+	foodnum int,
+	foodname varchar(20) UNIQUE,
+	money int,
+	primary key(number,foodnum)
+);
+create table company
+(
+	number int,
+	companyname varchar(20) UNIQUE,
+	address varchar(100),
+	phone int,
+	primary key(number)
+);
+create table worker
+(
+	number int,
+	companynum int,
+	workername varchar(20) UNIQUE,
+	phone int,
+	sex int check(sex in(1,0)),
+	age int,
+	primary key(number),
+	foreign key(companynum) references company(number)
+);
+create table customer
+(
+	number int,
+	customername  varchar(20) UNIQUE,
+	phone int,
+	sex int check(sex in(1,0)),
+	age int,
+	deaddress varchar(100),
+	primary key(number)
+);
+create table ordering
+(
+	ordernum int,
+	number int,
+	shopnum int,
+	workernum int,
+	address varchar(100),
+	money int,
+	primary key(ordernum),
+	foreign key(number) references customer(number),
+	foreign key(shopnum) references shop(number),
+	foreign key(workernum) references worker(number)
+);
+create table orderfood
+(
+	ordernum int,
+	foodnum int,
+	amount int check (amount>=1),
+	primary key(ordernum,foodnum)
+);
+create table shopcompany
+(
+	shopnum int,
+	companynum int,
+	primary key(shopnum,companynum),
+	foreign key(companynum) references company(number),
+	foreign key(shopnum) references shop(number)
+);

@@ -1,0 +1,45 @@
+/*----导航条样式----*/
+#navi {
+	left: 0;
+	top: 0;
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	padding: 1px;
+	background-image: url(../img/navi.jpg);
+	background-repeat: repeat-x;
+	min-width: 780px;
+	min-height: 30px;
+	height: 30px;
+}
+
+#navi ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+#navi li {
+	float: left;
+}
+
+#navi select {
+	font-weight: bold;
+}
+
+。navbar-collapse {
+	height:30px;
+}
+.navbar-brand {
+	padding: 5px 30px 5px 10px;
+}
+
+.navbar-text {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.navbar-nav > li > a {
+	padding-top:0px;
+	padding-bottom:px;
+}
